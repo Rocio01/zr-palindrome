@@ -7,9 +7,9 @@ String.prototype.reverse = function reverse(){
 
 function Phrase(content){
   this.content = content;
-  
+
   this.letters = function letters(){
-   let lettersRegex = /[a-z]/gi;
+   const lettersRegex = /[a-z]/gi;
     return (this.content.match(lettersRegex) || []).join("");
   }
 

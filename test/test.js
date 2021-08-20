@@ -1,5 +1,4 @@
 let assert = require("assert");
-const internal = require("stream");
 let Phrase = require("../index");
 
 describe("Phrase", function(){
@@ -23,6 +22,10 @@ describe("Phrase", function(){
     it("should return only the letters", function(){
       let punctuatedPalindrome = new Phrase("Madam, I'm Adam.");
       assert.strictEqual(punctuatedPalindrome.letters(), "MadamImAdam");
+    })
+    it("should return the empty string on no match", function(){
+      let noLetters = new Phrase("123456.789")
+      assert.strictEqual(noLetters.letters(), "")
     })
   });
  
