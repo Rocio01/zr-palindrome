@@ -5,18 +5,37 @@ String.prototype.reverse = function reverse(){
   return Array.from(this).reverse().join("");
 }
 
-
 function Phrase(content){
   this.content = content;
 
   this.letters = function letters(){
-   let theLetters = [];
-    for(let i = 0; i < this.content.length; i ++){
-      if (this.content.charAt(i).match(/[a-zA-Z]/gm)){
-        theLetters.push(this.content.charAt(i));
-      }
-    }
-    return theLetters.join("");
+  //  let theLetters = [];
+   let lettersRegex = /[a-z]/gi;
+
+    return (this.content.match(lettersRegex) || []).join("");
+
+    //  functional programming
+
+    // return Array.from(this.content).filter(c => c.match(lettersRegex)).join("");
+
+    //  with a forEach loop
+
+    // Array.from(this.content).forEach((character) => {
+    //   if (character.match(lettersRegex)){
+    //     theLetters.push(character);
+    //   }
+    // } )
+
+    // with a for loop
+
+    // for(let i = 0; i < this.content.length; i ++){
+    //   let character = this.content.charAt(i);
+    //   if (character.match(lettersRegex)){
+    //     theLetters.push(character);
+    //   }
+    // }
+
+    // return theLetters.join("");
   }
 
   this.processedContent = function processedContent() {
