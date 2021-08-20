@@ -16,8 +16,14 @@ describe("Phrase", function(){
       let mixedCasePalindrome = new Phrase("RaceCar");
       assert(mixedCasePalindrome.palindrome());
     })
-    it("should return true for a mixed-case palindrome");
-    it("should return true for a palindrome with punctuation");
+    it("should return true for a palindrome with punctuation", function(){
+      let punctuatedPalindrome = new Phrase("Madam, I'm Adam.");
+      assert(punctuatedPalindrome.palindrome());
+    });
+    it("should return only the letters", function(){
+      let punctuatedPalindrome = new Phrase("Madam, I'm Adam.");
+      assert.strictEqual(punctuatedPalindrome.letters(), "MadamImAdam");
+    })
   });
  
 

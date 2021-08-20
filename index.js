@@ -8,12 +8,21 @@ String.prototype.reverse = function reverse(){
 
 function Phrase(content){
   this.content = content;
-  this.processor = function processor(str){
-     return str.toLowerCase();
+
+  this.letters = function letters(){
+   let theLetters = [];
+    for(let i = 0; i < this.content.length; i ++){
+      if (this.content.charAt(i).match(/[a-zA-Z]/gm)){
+        theLetters.push(this.content.charAt(i));
+      }
+    }
+    return theLetters.join("");
   }
+
   this.processedContent = function processedContent() {
-    return this.processor(this.content);
+    return this.letters().toLowerCase();
   }
+
   
   this.palindrome = function palindrome(){
      return this.processedContent() === (this.processedContent()).reverse();
