@@ -18,7 +18,11 @@ function Phrase(content){
   }
   
   this.palindrome = function palindrome(){
-     return this.processedContent() === (this.processedContent()).reverse();
+    if(this.letters()){
+      return this.processedContent() === (this.processedContent()).reverse();
+    } else {
+      return false;
+    }
   } 
 }
 
